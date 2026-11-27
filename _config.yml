@@ -1,6 +1,6 @@
 title: GGacrux Research
 description: Independent research, technical briefings, field notes and lessons from GGacrux.
-url: "https://ggacrux.ca"
+url: "https://labs.ggacrux.ca"
 baseurl: ""
 markdown: kramdown
 permalink: /research/:categories/:title/
