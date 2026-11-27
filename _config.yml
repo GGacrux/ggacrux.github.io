@@ -1,0 +1,20 @@
+title: GGacrux Research
+description: Independent research, technical briefings, field notes and lessons from GGacrux.
+url: "https://ggacrux.ca"
+baseurl: ""
+markdown: kramdown
+permalink: /research/:categories/:title/
+timezone: America/Vancouver
+future: false
+exclude:
+  - README.md
+  - ARTICLE_TEMPLATE.md
+  - Gemfile
+  - Gemfile.lock
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+      author: GGacrux
