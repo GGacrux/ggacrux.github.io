@@ -1,1 +1,42 @@
-
+---
+layout: default
+title: Research journal
+description: Independent research, technical briefings, field notes and lessons from GGacrux.
+---
+<section class="hero">
+  <div>
+    <div class="eyebrow">GGACRUX · RESEARCH JOURNAL</div>
+    <h1>Curiosity, investigated.<br><em>Findings, made useful.</em></h1>
+    <p class="lead">Independent research, thoughtful briefings, experiments and lessons from exploring the ideas shaping technology.</p>
+    <div class="hero-meta"><span>INDEPENDENT RESEARCH</span><span>·</span><span>TECHNOLOGY &amp; AI</span><span>·</span><span>FIELD NOTES</span></div>
+  </div>
+  <div class="constellation-panel" aria-hidden="true"><svg viewBox="0 0 180 180" width="180"><circle cx="90" cy="90" r="72" stroke="currentColor" opacity=".18" stroke-dasharray="2 6" fill="none"/><circle cx="90" cy="90" r="49" stroke="currentColor" opacity=".2" fill="none"/><path d="M90 18 101 79 162 90 101 101 90 162 79 101 18 90 79 79Z" stroke="#8cc8ff" fill="none"/><circle cx="90" cy="90" r="4" fill="#8cc8ff"/><circle cx="90" cy="18" r="3" fill="#eef1f6"/><circle cx="162" cy="90" r="3" fill="#eef1f6"/></svg><div class="constellation-caption">FOLLOW THE QUESTION</div></div>
+</section>
+<section class="intro">
+  <div class="sec-kicker">00 · THE JOURNAL</div>
+  <div><h2>Not just what happened.<br><em>What it means, and what I found.</em></h2><p>GGacrux is a place to think in public: examine emerging work, connect ideas, document independent research, and share lessons that survive closer inspection. Sources are credited; interpretation is made explicit.</p></div>
+</section>
+<section>
+  <div class="section-head"><div><div class="sec-kicker">01 · FEATURED INVESTIGATION</div><h2>Start with a question</h2></div><span class="muted mono">GGACRUX LABS</span></div>
+  <a class="featured" href="{{ '/ggacrux-labs-autoaisociety/' | relative_url }}">
+    <div class="featured-art"><div class="orbit orbit-one"></div><div class="orbit orbit-two"></div><div class="orbit-core">G<span>×</span></div><small>GGACRUX LABS · RESEARCH SYNTHESIS</small></div>
+    <div class="featured-copy"><div class="tag">INDEPENDENT RESEARCH</div><h3>Multi-agent verification, governance &amp; research synthesis</h3><p>An investigation into autonomous research systems, verification, governance, and the engineering needed to make agent workflows reliable.</p><span class="read-link">READ THE INVESTIGATION ↗</span></div>
+  </a>
+</section>
+<section id="writing">
+  <div class="section-head"><div><div class="sec-kicker">02 · THE LIBRARY</div><h2>Research &amp; writing</h2></div><span class="muted mono">{{ site.posts | size }} PUBLICATIONS</span></div>
+  <div class="library-tools"><label class="search"><span>⌕</span><input id="journal-search" type="search" placeholder="Search titles, topics, findings…" aria-label="Search publications"></label><div class="filters"><button class="filter active" data-filter="all">All writing</button><button class="filter" data-filter="research">Research</button><button class="filter" data-filter="briefing">Briefings</button><button class="filter" data-filter="field-notes">Field notes</button><button class="filter" data-filter="experience">Experience</button></div></div>
+  <div id="publication-list">
+  {% for post in site.posts %}
+    <article class="publication" data-category="{{ post.category | default: 'research' | slugify }}" data-search="{{ post.title | downcase }} {{ post.excerpt | strip_html | downcase }} {{ post.tags | join: ' ' | downcase }}">
+      <div class="pub-date">{{ post.date | date: "%d %b %Y" | upcase }}</div><div><div class="pub-kicker">{{ post.category | default: "Research" }}{% if post.source %}<span> · {{ post.source }}</span>{% endif %}</div><h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3><p>{{ post.excerpt | strip_html | strip | truncate: 220 }}</p><div class="pub-tags">{% for tag in post.tags limit:4 %}<span>{{ tag }}</span>{% endfor %}</div></div><a class="pub-arrow" href="{{ post.url | relative_url }}" aria-label="Read {{ post.title }}">↗</a>
+    </article>
+  {% endfor %}
+  {% if site.posts.size == 0 %}<div class="empty"><span>✳</span><h3>The next question starts here.</h3><p>New research, briefings and field notes will appear here as they are published.</p><small>FIRST ENTRY · IN PROGRESS</small></div>{% endif %}
+  </div><p id="no-results" hidden>No publications match your search.</p>
+</section>
+<section id="approach">
+  <div class="sec-kicker">03 · EDITORIAL APPROACH</div><h2>Clear sources.<br><em>Independent conclusions.</em></h2>
+  <div class="principles"><div><b>01</b><h3>What the sources say</h3><p>Original papers, technical reports, documentation and first-hand material are linked wherever possible.</p></div><div><b>02</b><h3>What I observed</h3><p>Experiments, practical experience, interpretation and open questions are distinguished from sourced facts.</p></div><div><b>03</b><h3>What I conclude</h3><p>Each briefing aims to add context and a point of view—not simply repeat an announcement or abstract.</p></div></div>
+</section>
+<section class="radar"><div><div class="sec-kicker">04 · RESEARCH RADAR</div><h2>Signals worth following.</h2><p>Primary sources and research communities that inform the reading list.</p></div><div class="source-links"><a href="https://openai.com/research/" target="_blank" rel="noopener">OpenAI ↗</a><a href="https://www.anthropic.com/research" target="_blank" rel="noopener">Anthropic ↗</a><a href="https://deepmind.google/research/" target="_blank" rel="noopener">Google DeepMind ↗</a><a href="https://arxiv.org/" target="_blank" rel="noopener">arXiv ↗</a></div></section>
