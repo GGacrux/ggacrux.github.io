@@ -1,0 +1,15 @@
+---
+layout: default
+---
+<article class="article-page">
+<div class="article-back"><a href="{{ '/' | relative_url }}#writing">← BACK TO THE JOURNAL</a><span>{{ page.category | default: "Research" | upcase }}</span></div>
+<header class="article-header"><div class="eyebrow">GGACRUX · {{ page.category | default: "Research" | upcase }}</div><h1>{{ page.title }}</h1>
+{% if page.subtitle %}<p class="subtitle">{{ page.subtitle }}</p>{% endif %}
+<div class="article-meta"><span>{{ page.date | date: "%d %B %Y" }}</span><span>·</span><span>{{ page.author | default: "GGacrux" }}</span>{% if page.reading_time %}<span>·</span><span>{{ page.reading_time }} MIN READ</span>{% endif %}</div>
+{% if page.summary %}<p class="summary">{{ page.summary }}</p>{% endif %}</header>
+{% if page.hero_image %}<figure class="article-image"><img src="{{ page.hero_image | relative_url }}" alt="{{ page.hero_image_alt | default: page.title | escape }}">{% if page.image_caption %}<figcaption>{{ page.image_caption }}</figcaption>{% endif %}</figure>{% endif %}
+<div class="article-layout"><aside><div class="aside-label">PUBLICATION</div><span>{{ page.category | default: "Research" }}</span>{% if page.tags %}<div class="aside-label topics">TOPICS</div>{% for tag in page.tags %}<span class="aside-tag">{{ tag }}</span>{% endfor %}{% endif %}</aside>
+<div class="article-body">{{ content }}
+{% if page.sources %}<section class="references"><h2>Sources &amp; further reading</h2><ol>{% for source in page.sources %}<li><a href="{{ source.url }}" target="_blank" rel="noopener">{{ source.title }}</a>{% if source.publisher %}<span> — {{ source.publisher }}</span>{% endif %}</li>{% endfor %}</ol></section>{% endif %}
+{% if page.disclaimer %}<p class="disclaimer">{{ page.disclaimer }}</p>{% endif %}</div></div>
+<div class="article-end"><span>END OF ARTICLE</span><a href="{{ '/' | relative_url }}#writing">Explore more writing ↗</a></div></article>
